@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import './index.css';
 import Portfolio from './Portfolio';
 import reportWebVitals from './reportWebVitals';
@@ -7,7 +8,13 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Portfolio />
+    <HelmetProvider>
+      <Helmet>
+        <title>Zachery Nagy</title>
+        <meta name="description" content="Zachery Nagy portfolio."/>
+      </Helmet>
+      <Portfolio />
+    </HelmetProvider>
   </React.StrictMode>
 );
 
