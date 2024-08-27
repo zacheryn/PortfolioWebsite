@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import headshot from './headshot.png';
 import './App.css';
-import { CSSTransition } from "react-transition-group";
 
 const PInfo_html = <div>
   <div>
