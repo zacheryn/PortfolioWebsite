@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import logo from './logo.svg';
+import React, { useState, useEffect, Fragment } from "react";
 import headshot from './headshot.png';
 import './App.css';
+import { CSSTransition } from "react-transition-group";
 
 const PInfo_html = <div>
   <div>
@@ -77,6 +77,7 @@ const WorkExperience_html = <div>
       </ul>
     </p>
   </div>
+  <hr />
   <div>
   <h2>
       Shift Manager
@@ -163,6 +164,7 @@ const PProj_html = <div>
       A console-based text adventure game written in solely C++. It has multiple locations with free travel between them, ANSI escape codes to add more color into the text, and working audio using XAudio2.
     </p>
   </div>
+  <hr />
   <div>
     <h1>
       Wikipedia Search Engine
@@ -171,6 +173,7 @@ const PProj_html = <div>
       A search engine written in Python using Flask which uses TF-IDF to find relative Wikipedia pages (unaffiliated with Wikipedia).  I also created the index used in this search engine by sending the html of the Wikipedia pages through several Map-Reduce stages.
     </p>
   </div>
+  <hr />
   <div>
     <h1>
       Variational Autoencoder
@@ -183,24 +186,69 @@ const PProj_html = <div>
 
 function Portfolio() {
   const [info, setInfo] = useState(PInfo_html);
+
+  const Button = ({ as, children, filled, secondary, ...rest }) => {
+    const that = {
+      as
+    }
+    return (
+      <that.as className={`dir-control ${secondary ? 'dir-control--secondary' : ''} ${filled ? 'dir-control--filled' : ''}`} {...rest} >
+        {children}
+        <span/>
+        <span/>
+        <span/>
+        <span/>
+        <b aria-hidden="true">{children}</b>
+        <b aria-hidden="true">{children}</b>
+        <b aria-hidden="true">{children}</b>
+        <b aria-hidden="true">{children}</b>
+      </that.as>
+    )
+  }
+  Button.defaultProps = {
+    as: 'Button'
+  };
+
+  const buttonPadding = {
+    marginLeft: '10px',
+    marginRight: '10px'
+  };
+
   return (
-    info
+    <Fragment>
+      <div className="Header">
+        <nav className="Nav">
+          <Button role="button" style={buttonPadding} onClick={(event) => {
+            event.preventDefault();
+            setInfo(PInfo_html);
+          }}>
+            Personal Info
+          </Button>
+          <Button role="button" style={buttonPadding} onClick={(event) => {
+            event.preventDefault();
+            setInfo(WorkExperience_html);
+          }}>
+            Work Experience
+          </Button>
+          <Button role="button" style={buttonPadding} onClick={(event) => {
+            event.preventDefault();
+            setInfo(Education_html);
+          }}>
+            Education
+          </Button>
+          <Button role="button" style={buttonPadding} onClick={(event) => {
+            event.preventDefault();
+            setInfo(PProj_html);
+          }}>
+            Projects
+          </Button>
+        </nav>
+      </div>
+      <div className="Info">
+        {info}
+      </div>
+      </Fragment>
   );
 }
-{/* <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div> */}
+
 export default Portfolio;
