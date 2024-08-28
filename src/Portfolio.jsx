@@ -31,16 +31,16 @@ const PInfo_html = <div>
       Skills:
       <ul>
         <li>
-          Programming Languages: C/C++ (Expert), Python (Expert), Java (Intermediate), Javascript (intermediate), HTML (Intermediate)
+          Programming Languages: C/C++ (5 years), Python (4 years), Java (2 years), Javascript (2 years), HTML (2 years)
         </li>
         <li>
-          Databases: Oracle SQL (Expert), Sqlite3 (Intermediate), MongoDB (Beginner)
+          Databases: Oracle SQL (2 years), Sqlite3 (3 years), MongoDB (1 years)
         </li>
         <li>
-          Git (Expert)
+          Git (5 years)
         </li>
         <li>
-          Audodesk softwares: AutoCAD (Intermediate), Inventor (Expert)
+          Audodesk softwares: AutoCAD (8 years), Inventor (8 years)
         </li>
       </ul>
     </li>
